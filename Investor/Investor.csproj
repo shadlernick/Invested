@@ -109,26 +109,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Database\DatabaseLists.cs" />
     <Compile Include="Loading.xaml.cs">
       <DependentUpon>Loading.xaml</DependentUpon>
     </Compile>
     <Compile Include="Memento\CareTaker.cs" />
-    <Compile Include="Database\InvestorContext.cs" />
-    <Compile Include="Implements\ClientImpl.cs" />
-    <Compile Include="Implements\DealClientImpl.cs" />
-    <Compile Include="Implements\DealImpl.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Memento\Memento.cs" />
-    <Compile Include="Database\Migrations\201905251625150_first.cs" />
-    <Compile Include="Database\Migrations\201905251625150_first.Designer.cs">
-      <DependentUpon>201905251625150_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Migrations\201905251636262_datetime2.cs" />
-    <Compile Include="Database\Migrations\201905251636262_datetime2.Designer.cs">
-      <DependentUpon>201905251636262_datetime2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Migrations\Configuration.cs" />
     <Compile Include="ViewModel\ISelectedChangable.cs" />
     <Compile Include="ViewModel\ManagementVM.cs" />
     <Compile Include="View\AddContract.xaml.cs">
@@ -201,12 +187,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Database\Migrations\201905251625150_first.resx">
-      <DependentUpon>201905251625150_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Database\Migrations\201905251636262_datetime2.resx">
-      <DependentUpon>201905251636262_datetime2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
