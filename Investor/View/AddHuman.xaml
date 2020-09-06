@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="Investor.View.AddHuman"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Investor.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="CadetBlue">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0.8*" />
+        </Grid.ColumnDefinitions>
+
+        <ListBox Grid.Column="0"  ItemsSource="{Binding Clients, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 SelectedItem="{Binding SelectedClient, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ListBox.Background>
+                <SolidColorBrush Color="White" Opacity="0.8"/>
+            </ListBox.Background>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock FontSize="18" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="{Binding Path=Card, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBlock Text="{Binding Path=Info, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1">
+            <TextBlock FontSize="18" Text="Selected element"  />
+            <TextBlock Text="Name" />
+            <TextBox x:Name="name" Text="{Binding Path=NewClient.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            <TextBlock Text="Phone" />
+            <TextBox x:Name="phone" Text="{Binding Path=NewClient.Phone, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            <TextBlock Text="Card" />
+            <TextBox x:Name="card" Text="{Binding Path=NewClient.Card, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            <TextBlock Text="Info" />
+            <TextBox x:Name="info" Text="{Binding Path=NewClient.Info, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            <Button FontSize="14" Background="Azure" Content="Add" Command="{Binding AddHuman}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
+            <Button FontSize="14" Background="Azure" Content="Remove" Command="{Binding RemoveHuman}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
+            <Button Height="25" FontSize="14" Background="Azure" Content="Edit" Command="{Binding EditHuman}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
