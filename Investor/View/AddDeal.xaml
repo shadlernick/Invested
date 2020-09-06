@@ -40,9 +40,9 @@
             <DatePicker SelectedDate="{Binding Path=NewDeal.DateIn, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"/>
             <TextBlock Text="DateOut" />
             <DatePicker SelectedDate="{Binding Path=NewDeal.DateOut, UpdateSourceTrigger=LostFocus, Mode=TwoWay}"/>
-            <Button Name="btn" FontSize="14" IsEnabled="{Binding IsEnabled}" Background="Azure" Command="{Binding AddDeal}" Content="Add" HorizontalAlignment="Left" Margin="50,30,0,0" VerticalAlignment="Top" Width="175"/>
-            <Button FontSize="14" Background="Azure" Content="Remove" Command="{Binding RemoveDeal}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
-            <Button FontSize="14" Background="Azure" Content="Edit" Command="{Binding EditDeal}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
+            <Button Name="btn" FontSize="14" IsEnabled="{Binding IsEnabled}" Background="Azure" Command="{Binding AddDealCommand}" Content="Add" HorizontalAlignment="Left" Margin="50,30,0,0" VerticalAlignment="Top" Width="175"/>
+            <Button FontSize="14" Background="Azure" Content="Remove" Command="{Binding RemoveDealCommand}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
+            <Button FontSize="14" Background="Azure" Content="Edit" Command="{Binding EditDealCommand}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
 
         </StackPanel>
     </Grid>

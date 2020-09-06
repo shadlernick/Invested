@@ -21,15 +21,15 @@ namespace Investor
         MainWindow _mainWindow;
         protected override void OnStartup(StartupEventArgs e)
         {
-            _loading = new Loading();
+            //_loading = new Loading();
 
 
-            _loading.Show();
-            Task.Factory.StartNew(async () =>
-            {
-                _databaseLists = DatabaseLists.GetDatabaseLists();
-            }).Wait();
-            _loading.Close();
+            //_loading.Show();
+            //Task.Factory.StartNew(async () =>
+            //{
+            //    _databaseLists = DatabaseLists.GetDatabaseLists();
+            //}).Wait();
+            //_loading.Close();
 
             _mainWindow = new MainWindow();
             _mainWindow.Show();

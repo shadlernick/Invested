@@ -35,7 +35,7 @@ namespace Investor
 
             DataContext = new ManagementVM();
             careTaker = new CareTaker();
-            Loaded += Window_Load;
+            Loaded += Window_Loaded;
         }
 
         private void Window_Load(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace Investor
                 {
                     MessageBox.Show("Error connection, exchange is empty!");
                 }
-                
+
             }
         }
 
