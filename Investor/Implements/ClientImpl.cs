@@ -27,10 +27,7 @@ namespace Investor.Implements
         public Client get(int id) => _context.Clients.Find(id);
 
 
-        public ObservableCollection<Client> getAll()
-        {
-            return new ObservableCollection<Client>(_context.Clients);
-        }
+        public ObservableCollection<Client> getAll() => new ObservableCollection<Client>(_context.Clients);
 
         public Client save(Client entity)
         {
@@ -54,13 +51,10 @@ namespace Investor.Implements
 
         protected virtual void Dispose(bool disposing)
         {
-            if (disposing)
+            if (disposing && _context != null)
             {
-                if (_context != null)
-                {
-                    _context.Dispose();
-                    _context = null;
-                }
+                _context.Dispose();
+                _context = null;
             }
         }
     }

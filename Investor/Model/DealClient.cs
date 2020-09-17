@@ -25,7 +25,7 @@ namespace Investor.Model
 
         public string DealSubs
         {
-            get { return dealSubs; }
+            get => dealSubs;
             set
             {
                 dealSubs = value;
@@ -35,7 +35,7 @@ namespace Investor.Model
 
         public string ClientName
         {
-            get { return clientName; }
+            get => clientName;
             set
             {
                 clientName = value;
@@ -45,7 +45,7 @@ namespace Investor.Model
 
         public int SumIn
         {
-            get { return sumIn; }
+            get => sumIn;
             set
             {
                 sumIn = value;
@@ -55,7 +55,7 @@ namespace Investor.Model
 
         public string Info
         {
-            get { return info; }
+            get => info;
             set
             {
                 info = value;
@@ -66,7 +66,7 @@ namespace Investor.Model
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id
         {
-            get { return id; }
+            get => id;
             set
             {
                 id = value;
@@ -75,7 +75,7 @@ namespace Investor.Model
         }
         public int DealId
         {
-            get { return dealId; }
+            get => dealId;
             set
             {
                 dealId = value;
@@ -84,7 +84,7 @@ namespace Investor.Model
         }
         public int ClientId
         {
-            get { return clientId; }
+            get => clientId;
             set
             {
                 clientId = value;

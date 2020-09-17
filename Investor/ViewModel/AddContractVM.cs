@@ -35,7 +35,7 @@ namespace Investor.ViewModel
 
         public DealClient SelectedDealClient
         {
-            get { return selectedDealClient; }
+            get => selectedDealClient;
             set
             {
                 selectedDealClient = value;
@@ -45,7 +45,7 @@ namespace Investor.ViewModel
 
         public DealClient NewDealClient
         {
-            get { return dealClient; }
+            get => dealClient;
             set
             {
                 dealClient = value;
@@ -55,7 +55,7 @@ namespace Investor.ViewModel
 
         public Deal SelectedDeal
         {
-            get { return selectedDeal; }
+            get => selectedDeal;
             set
             {
                 selectedDeal = value;
@@ -65,7 +65,7 @@ namespace Investor.ViewModel
 
         public Client SelectedClient
         {
-            get { return selectedClient; }
+            get => selectedClient;
             set
             {
                 selectedClient = value;

@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace Investor.Model
 {
-    ///<summary> - Класс клиента-пользователя услугами инвестора </summary>
     public class Client : INotifyPropertyChanged 
     {
         private int _id;
@@ -19,10 +18,7 @@ namespace Investor.Model
         private string _card;
         private string _phone;
 
-        public Client()
-        {
-            //_id = Guid.NewGuid();
-        }
+        public Client(){}
         public Client(int id, string name, string info, string card, string phone)
         {
             this._id = id;
@@ -31,11 +27,11 @@ namespace Investor.Model
             this._card = card;
             this._phone = phone;
         }
-        ///свойство параметра id, остальное по аналогии
+
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id 
         {
-            get { return _id; }
+            get => _id;
             set
             {
                 _id = value;
@@ -43,10 +39,9 @@ namespace Investor.Model
             }
         }
 
-        ///<see public int Id/>
         public string Name 
         {
-            get { return _name; }
+            get => _name;
             set
             {
                 _name = value;
@@ -54,10 +49,9 @@ namespace Investor.Model
             }
         }
 
-        ///<see public int Id/>
         public string Info
         {
-            get { return _info; }
+            get => _info;
             set
             {
                 _info = value;
@@ -65,10 +59,9 @@ namespace Investor.Model
             }
         }
 
-        ///<see public int Id/>
         public string Card
         {
-            get { return _card; }
+            get => _card;
             set
             {
                 _card = value;
@@ -76,10 +69,9 @@ namespace Investor.Model
             }
         }
 
-        ///<see public int Id/>
         public string Phone
         {
-            get { return _phone; }
+            get => _phone;
             set
             {
                 _phone = value;

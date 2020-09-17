@@ -27,10 +27,7 @@ namespace Investor.Implements
         public Deal get(int id) => _context.Deals.Find(id);
 
 
-        public ObservableCollection<Deal> getAll()
-        {
-            return new ObservableCollection<Deal>(_context.Deals);
-        }
+        public ObservableCollection<Deal> getAll() => new ObservableCollection<Deal>(_context.Deals);
 
         public Deal save(Deal entity)
         {
@@ -61,13 +58,10 @@ namespace Investor.Implements
 
         protected virtual void Dispose(bool disposing)
         {
-            if (disposing)
+            if (disposing && _context != null)
             {
-                if (_context != null)
-                {
-                    _context.Dispose();
-                    _context = null;
-                }
+                _context.Dispose();
+                _context = null;
             }
         }
     }

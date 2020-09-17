@@ -33,22 +33,10 @@ namespace Investor.ViewModel
         private RelayCommand _removeDealCommand;
         private RelayCommand _delayEditModeCommand;
 
-        public RelayCommand AddDealCommand
-        {
-            get => _addDealCommand;
-        }
-        public RelayCommand EditDealCommand
-        {
-            get => _editDealCommand;
-        }
-        public RelayCommand RemoveDealCommand
-        {
-            get => _removeDealCommand;
-        }
-        public RelayCommand DelayEditModeCommand
-        {
-            get => _delayEditModeCommand;
-        }
+        public RelayCommand AddDealCommand => _addDealCommand;
+        public RelayCommand EditDealCommand => _editDealCommand;
+        public RelayCommand RemoveDealCommand => _removeDealCommand;
+        public RelayCommand DelayEditModeCommand => _delayEditModeCommand;
 
         private bool _isAddEnable = true;
         public bool IsEnabled

@@ -14,7 +14,6 @@ namespace Investor.Model
     public class Builder
     {
         Deal deal;
-
         public Deal BuildDealWithDate()
         {
             deal = new Deal();
@@ -38,7 +37,7 @@ namespace Investor.Model
 
         public string Status
         {
-            get { return status; }
+            get => status;
             set
             {
                 status = value;
@@ -48,7 +47,7 @@ namespace Investor.Model
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id
         {
-            get { return id; }
+            get => id;
             set
             {
                 id = value;
@@ -58,7 +57,7 @@ namespace Investor.Model
 
         public string Subscription
         {
-            get { return subscription; }
+            get => subscription;
             set
             {
                 subscription = value;
@@ -68,7 +67,7 @@ namespace Investor.Model
 
         public int Sum
         {
-            get { return sum; }
+            get => sum;
             set
             {
                 sum = value;
@@ -78,7 +77,7 @@ namespace Investor.Model
 
         public string Profit
         {
-            get { return profit; }
+            get => profit;
             set
             {
                 profit = value;
@@ -88,7 +87,7 @@ namespace Investor.Model
 
         public DateTime DateIn
         {
-            get { return dateIn.Date; }
+            get => dateIn.Date;
             set
             {
                 dateIn = value;
@@ -98,7 +97,7 @@ namespace Investor.Model
 
         public DateTime DateOut
         {
-            get { return dateOut.Date; }
+            get => dateOut.Date;
             set
             {
                 dateOut = value;

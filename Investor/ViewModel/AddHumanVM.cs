@@ -17,7 +17,6 @@ using System.Windows.Data;
 
 namespace Investor.ViewModel
 {
-    ///<summary> ViewModel соединяющая Client(Model) и AddHumanWindow(View) </summary>
     public class AddHumanVM : ISelectedChangable, INotifyPropertyChanged
     {
         private DatabaseLists _databaseLists;
@@ -37,10 +36,7 @@ namespace Investor.ViewModel
 
         public Client SelectedClient
         {
-            get
-            {
-                return _selectedClient;
-            }
+            get => _selectedClient;
             set
             {
                 _selectedClient = value;
@@ -51,10 +47,7 @@ namespace Investor.ViewModel
 
         public Client NewClient
         {
-            get
-            {
-                return client;
-            }
+            get => client;
             set
             {
                 client = value;
@@ -62,7 +55,6 @@ namespace Investor.ViewModel
             }
         }
 
-        ///constructor инициализирую Client`a и ObservableCollection`ы
         public AddHumanVM()
         {
             //_investorContext = investorContext;
@@ -77,10 +69,7 @@ namespace Investor.ViewModel
         private bool _isAddEnable = true;
         public bool IsEnabled
         {
-            get
-            {
-                return _isAddEnable;
-            }
+            get => _isAddEnable;
             set
             {
                 _isAddEnable = value;
@@ -88,34 +77,18 @@ namespace Investor.ViewModel
             }
         }
 
-        //}
-        /// <summary>
-        /// Редактирование существующего client`a
-        /// </summary>
         public void EditHuman()
         {
             NewClient = SelectedClient;
             IsEnabled = false;
             OnSelectedItemChanged += base.SelectedChanged;
-            //Clients.Where(x => x.Id == selectedClient.Id).FirstOrDefault().Name = NewClient.Name;
-            //Clients.Where(x => x.Id == selectedClient.Id).FirstOrDefault().Info = NewClient.Info;
-            //Clients.Where(x => x.Id == selectedClient.Id).FirstOrDefault().Card = NewClient.Card;
-            //Clients.Where(x => x.Id == selectedClient.Id).FirstOrDefault().Phone = NewClient.Phone;
-
-            //client = new Client();
-
         }
 
-        /// <summary>
-        /// Добавление нового client`a
-        /// </summary>
         public void AddHuman()
         {
             try
             {
                 Clients.Add(NewClient);
-                //_investorContext.Clients.Add(NewClient);
-                //_investorContext.SaveChanges();
                 NewClient = new Client();
             }
             catch (ArgumentNullException)
@@ -125,16 +98,11 @@ namespace Investor.ViewModel
 
         }
 
-        /// <summary>
-        /// Удаление существующего client`a
-        /// </summary>
         public void RemoveHuman()
         {
             try
             {
-                //_investorContext.Clients.Remove(SelectedClient);
                 Clients.Remove(SelectedClient);
-                //_investorContext.SaveChanges();
             }
             catch (ArgumentNullException)
             {

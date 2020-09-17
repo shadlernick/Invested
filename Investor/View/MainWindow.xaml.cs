@@ -3,7 +3,6 @@ using Investor.View;
 using Investor.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
 using System.IO;
 using Newtonsoft.Json;
 using System.Linq;
@@ -23,9 +22,6 @@ using Newtonsoft.Json.Linq;
 
 namespace Investor
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
 
@@ -82,8 +78,8 @@ namespace Investor
 
             }
         }
-
-        SQLiteConnection sqlConn = new SQLiteConnection(@"Data Source=" + Environment.CurrentDirectory + "\\InvestorDB.db");
+        
+        //SQLiteConnection sqlConn = new SQLiteConnection(@"Data Source=" + Environment.CurrentDirectory + "\\InvestorDB.db");
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
