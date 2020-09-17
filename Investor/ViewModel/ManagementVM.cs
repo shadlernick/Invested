@@ -1,6 +1,5 @@
 ﻿
 using GalaSoft.MvvmLight.Command;
-using Investor.Database;
 using Investor.Model;
 using System;
 using System.Collections.Generic;
@@ -15,8 +14,6 @@ namespace Investor.ViewModel
 {
     public class ManagementVM : INotifyPropertyChanged
     {
-        private DatabaseLists _databaseLists;
-
         public static event EventHandler OnSelectedItemChanged;
         public ObservableCollection<Deal> Deals { get; set; }
         public ObservableCollection<Client> Clients { get; set; }
@@ -65,11 +62,6 @@ namespace Investor.ViewModel
             //Deals = new ObservableCollection<Deal>(_investorContext.Deals.ToList());
             //Clients = new ObservableCollection<Client>(_investorContext.Clients.ToList());
             //DealClients = new ObservableCollection<DealClient>(_investorContext.DealClients.ToList());
-            _databaseLists = DatabaseLists.GetDatabaseLists();
-
-            Deals = _databaseLists.Deals;
-            Clients = _databaseLists.Clients;
-            DealClients = _databaseLists.DealClients;
             
             OnSelectedItemChanged += SelectedChanged;
         }

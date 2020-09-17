@@ -1,5 +1,4 @@
-﻿using Investor.Database;
-using Investor.ViewModel;
+﻿using Investor.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,7 +16,6 @@ namespace Investor
     public partial class App : Application
     {
         Loading _loading;
-        DatabaseLists _databaseLists;
         MainWindow _mainWindow;
         protected override void OnStartup(StartupEventArgs e)
         {

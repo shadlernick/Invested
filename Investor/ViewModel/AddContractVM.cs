@@ -1,6 +1,5 @@
 ﻿
 using GalaSoft.MvvmLight.Command;
-using Investor.Database;
 using Investor.Model;
 using System;
 using System.Collections.Generic;
@@ -16,8 +15,6 @@ namespace Investor.ViewModel
 {
     public class AddContractVM : INotifyPropertyChanged
     {
-        private DatabaseLists _databaseLists;
-
         private DealClient dealClient;
 
         public ObservableCollection<Deal> Deals { get; set; }
@@ -76,12 +73,6 @@ namespace Investor.ViewModel
         public AddContractVM()   //constructor
         {
             NewDealClient = new DealClient();
-
-            _databaseLists = DatabaseLists.GetDatabaseLists();
-
-            Deals = _databaseLists.Deals;
-            Clients = _databaseLists.Clients;
-            DealClients = _databaseLists.DealClients;
         }
 
         public void EditDealClient()

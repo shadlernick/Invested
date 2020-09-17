@@ -1,6 +1,5 @@
 ﻿
 using GalaSoft.MvvmLight.Command;
-using Investor.Database;
 using Investor.Model;
 using Investor.View;
 using System;
@@ -19,7 +18,7 @@ namespace Investor.ViewModel
 {
     public class AddHumanVM : ISelectedChangable, INotifyPropertyChanged
     {
-        private DatabaseLists _databaseLists;
+        //private DatabaseLists _databaseLists;
 
         private Client client;
 
@@ -59,9 +58,9 @@ namespace Investor.ViewModel
         {
             //_investorContext = investorContext;
 
-            _databaseLists = DatabaseLists.GetDatabaseLists();
+            //_databaseLists = DatabaseLists.GetDatabaseLists();
 
-            Clients = _databaseLists.Clients;
+            //Clients = _databaseLists.Clients;
 
             NewClient = new Client();
         }
