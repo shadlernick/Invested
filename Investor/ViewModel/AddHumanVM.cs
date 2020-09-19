@@ -13,26 +13,29 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using Investor.Database;
 
 namespace Investor.ViewModel
 {
-    public class AddHumanVM : ISelectedChangable, INotifyPropertyChanged
+    public class AddHumanVM : ViewModelBase
     {
         //private DatabaseLists _databaseLists;
 
         private Client client;
 
-        public static event EventHandler OnSelectedItemChanged;
         public ObservableCollection<Client> Clients { get; set; }
 
         #region RelayCommands
-        private RelayCommand addHuman;
-        private RelayCommand editHuman;
-        private RelayCommand removeHuman;
+        private RelayCommand _addHumanCommand;
+        private RelayCommand _editHumanCommand;
+        private RelayCommand _removeHumanCommand;
+
+        public RelayCommand AddHumanCommand => _addHumanCommand;
+        public RelayCommand EditHumanCommand => _editHumanCommand;
+        public RelayCommand RemoveHumanCommand => _removeHumanCommand;
         #endregion
 
         private Client _selectedClient;
-
         public Client SelectedClient
         {
             get => _selectedClient;
@@ -40,7 +43,6 @@ namespace Investor.ViewModel
             {
                 _selectedClient = value;
                 OnPropertyChanged("SelectedClient");
-                OnSelectedItemChanged?.Invoke(this, null);
             }
         }
 
@@ -54,13 +56,16 @@ namespace Investor.ViewModel
             }
         }
 
-        public AddHumanVM()
+        public AddHumanVM(InvestorContext investorContext) : base(investorContext)
         {
             //_investorContext = investorContext;
-
             //_databaseLists = DatabaseLists.GetDatabaseLists();
-
             //Clients = _databaseLists.Clients;
+            Clients = new ObservableCollection<Client>();
+
+            _addHumanCommand = new RelayCommand(AddHumanMethod);
+            _editHumanCommand = new RelayCommand(EditHumanMethod);
+            _removeHumanCommand = new RelayCommand(RemoveHumanMethod);
 
             NewClient = new Client();
         }
@@ -76,14 +81,13 @@ namespace Investor.ViewModel
             }
         }
 
-        public void EditHuman()
+        public void EditHumanMethod()
         {
             NewClient = SelectedClient;
             IsEnabled = false;
-            OnSelectedItemChanged += base.SelectedChanged;
         }
 
-        public void AddHuman()
+        public void AddHumanMethod()
         {
             try
             {
@@ -97,7 +101,7 @@ namespace Investor.ViewModel
 
         }
 
-        public void RemoveHuman()
+        public void RemoveHumanMethod()
         {
             try
             {
@@ -108,19 +112,6 @@ namespace Investor.ViewModel
                 MessageBox.Show("Please, select client!");
             }
 
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
-
-        public override void DelayEditMode()
-        {
-            IsEnabled = true;
-            NewClient = new Client();
-            OnSelectedItemChanged -= base.SelectedChanged;
         }
     }
 }

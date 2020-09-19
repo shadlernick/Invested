@@ -10,10 +10,11 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Investor.Database;
 
 namespace Investor.ViewModel
 {
-    public class AddContractVM : INotifyPropertyChanged
+    public class AddContractVM : ViewModelBase
     {
         private DealClient dealClient;
 
@@ -70,8 +71,9 @@ namespace Investor.ViewModel
             }
         }
 
-        public AddContractVM()   //constructor
+        public AddContractVM(InvestorContext investorContext) : base(investorContext)  //constructor
         {
+            Deals = new ObservableCollection<Deal>(this.InvestorContext.Deals);
             NewDealClient = new DealClient();
         }
 

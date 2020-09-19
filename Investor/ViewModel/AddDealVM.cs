@@ -12,19 +12,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Investor.Database;
 
 namespace Investor.ViewModel
 {
-    public class AddDealVM : INotifyPropertyChanged
+    public class AddDealVM : ViewModelBase
     {
         //private DatabaseLists _databaseLists;
-        public ObservableCollection<Deal> Deals { get; set; }
+        private ObservableCollection<Deal> _deals;
+        public ObservableCollection<Deal> Deals
+        {
+            get => _deals;
+            set
+            {
+                _deals = value;
+                OnPropertyChanged("Deals");
+            }
+        }
 
-
-        Builder _dealBuilder;
+        private Builder _dealBuilder;
         private Deal _deal;
         private Deal _selectedDeal;
-
 
         private RelayCommand _addDealCommand;
         private RelayCommand _editDealCommand;
@@ -69,13 +77,13 @@ namespace Investor.ViewModel
             }
         }
 
-        public AddDealVM()   //constructor
+        public AddDealVM(InvestorContext investorContext) : base(investorContext)   //constructor
         {
             _dealBuilder = new Builder();
             //_investorContext = investorContext;
 
             //_databaseLists = DatabaseLists.GetDatabaseLists();
-            Deals = new ObservableCollection<Deal>();
+            Deals = new ObservableCollection<Deal>(this.InvestorContext.Deals);
             NewDeal = _dealBuilder.BuildDealWithDate();
 
 
@@ -134,14 +142,6 @@ namespace Investor.ViewModel
             _editDealCommand = new RelayCommand(EditDealMethod);
         }
 
-
-
         public static event EventHandler OnSelectedItemChanged;
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
     }
 }

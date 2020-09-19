@@ -9,10 +9,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Investor.Database;
 
 namespace Investor.ViewModel
 {
-    public class ManagementVM : INotifyPropertyChanged
+    public class ManagementVM : ViewModelBase
     {
         public static event EventHandler OnSelectedItemChanged;
         public ObservableCollection<Deal> Deals { get; set; }
@@ -31,7 +32,6 @@ namespace Investor.ViewModel
             //_investorContext.SaveChanges();
 
         }
-
 
         private DealClient _selectedDealClient;
         public DealClient SelectedDealClient
@@ -56,7 +56,7 @@ namespace Investor.ViewModel
             }
         }
 
-        public ManagementVM()   //constructor
+        public ManagementVM(InvestorContext investorContext) : base(investorContext)   //constructor
         {
             //this._investorContext = investorContext;
             //Deals = new ObservableCollection<Deal>(_investorContext.Deals.ToList());
@@ -82,12 +82,6 @@ namespace Investor.ViewModel
                 OnPropertyChanged("Temp");
             }
             catch (Exception ex) { }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

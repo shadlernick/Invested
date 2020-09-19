@@ -40,9 +40,9 @@
             <TextBox x:Name="card" Text="{Binding Path=NewClient.Card, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
             <TextBlock Text="Info" />
             <TextBox x:Name="info" Text="{Binding Path=NewClient.Info, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-            <Button FontSize="14" Background="Azure" Content="Add" Command="{Binding AddHuman}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
-            <Button FontSize="14" Background="Azure" Content="Remove" Command="{Binding RemoveHuman}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
-            <Button Height="25" FontSize="14" Background="Azure" Content="Edit" Command="{Binding EditHuman}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
+            <Button FontSize="14" Background="Azure" Content="Add" Command="{Binding AddHumanCommand}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
+            <Button FontSize="14" Background="Azure" Content="Remove" Command="{Binding RemoveHumanCommand}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
+            <Button Height="25" FontSize="14" Background="Azure" Content="Edit" Command="{Binding EditHumanCommand}" HorizontalAlignment="Left" Margin="50,20,0,0" VerticalAlignment="Top" Width="175"/>
         </StackPanel>
     </Grid>
 </UserControl>

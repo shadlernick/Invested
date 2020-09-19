@@ -24,7 +24,6 @@ namespace Investor.View
         public AddHuman()
         {
             InitializeComponent();
-            DataContext = new AddHumanVM();
         }
     }
 }

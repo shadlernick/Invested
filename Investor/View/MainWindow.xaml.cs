@@ -18,18 +18,27 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.Http;
+using Investor.Database;
 using Newtonsoft.Json.Linq;
 
 namespace Investor
 {
     public partial class MainWindow : Window
     {
-
+        private List<IViewModel> _viewModels;
+        private InvestorContext _investorContext;
         public MainWindow()
         {
             InitializeComponent();
+            _investorContext = new InvestorContext();
 
-            DataContext = new ManagementVM();
+            _viewModels = new List<IViewModel>();
+            _viewModels.Add(new AddContractVM(_investorContext));
+            _viewModels.Add(new AddDealVM(_investorContext));
+            _viewModels.Add(new AddHumanVM(_investorContext));
+            _viewModels.Add(new ManagementVM(_investorContext));
+
+            DataContext = _viewModels.FirstOrDefault(x => x.GetType() == typeof(ManagementVM));
             careTaker = new CareTaker();
             Loaded += Window_Loaded;
         }
@@ -110,25 +119,25 @@ namespace Investor
         private void OpenAddDealWindowBtn_Click(object sender, RoutedEventArgs e)
         {
             MakeMemento();
-            DataContext = new AddDealVM();            
+            DataContext = _viewModels.FirstOrDefault(x => x.GetType() == typeof(AddDealVM));
         }
 
         private void OpenAddHumanWindowBtn_Click(object sender, RoutedEventArgs e)
         {
             MakeMemento();
-            DataContext = new AddHumanVM();
+            DataContext = _viewModels.FirstOrDefault(x => x.GetType() == typeof(AddHumanVM));
         }
 
         private void OpenAddContractWindowBtn_Click(object sender, RoutedEventArgs e)
         {
             MakeMemento();
-            DataContext = new AddContractVM();
+            DataContext = _viewModels.FirstOrDefault(x => x.GetType() == typeof(AddContractVM));
         }
 
         private void OpenManagementWindowBtn_Click(object sender, RoutedEventArgs e)
         {
             MakeMemento();
-            DataContext = new ManagementVM();
+            DataContext = _viewModels.FirstOrDefault(x => x.GetType() == typeof(ManagementVM));
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
